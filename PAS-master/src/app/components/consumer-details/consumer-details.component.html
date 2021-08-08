@@ -1,0 +1,19 @@
+<div class="container">
+    
+    <div>
+        <form> 
+            <div>
+                <label for="consumerId">Consumer Id</label>
+                <input type="number" required [(ngModel)]="cid">
+            </div>
+            <div>
+                <button (click)='getDetails(cid)'>Get Details</button>
+                <button (click)='updateDetails(cid)'>Update Details</button>
+                <a routerLink="create">create</a>
+            </div>
+        </form>
+    </div>
+    <!-- <div *ngIf='errorMessage' class="error">
+        {{errorMessage}}
+    </div> -->
+</div>
