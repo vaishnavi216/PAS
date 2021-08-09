@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 import { IConsumerFormData } from 'src/app/models/consumerData';
-import { ConsumerService } from 'src/app/services/consumer.service';
+import { ConsumerService } from 'src/app/services/updateconsumer.service';
+//import { ConsumerService } from 'src/app/services/consumer.service';
 
 @Component({
-  selector: 'app-create-details',
-  templateUrl: './create-details.component.html',
-  styleUrls: ['./create-details.component.css']
+  selector: 'app-update-details',
+  templateUrl: './update-details.component.html',
+  styleUrls: ['./update-details.component.css']
 })
-export class CreateDetailsComponent implements OnInit {
+export class UpdateDetailsComponent implements OnInit {
+
   public consumerForm = new FormGroup({});
   public categories = ['Retailer', 'Food Service', 'Supplier', 'Manufacturer', 'Business Service', 'Investor'];
   public retailerTypes = ['E-tailer','Independent Grocer', 'Home and Textile', 'Pharmacy','Mass Merchandiser'];
@@ -20,16 +22,17 @@ export class CreateDetailsComponent implements OnInit {
   public investorTypes=['Private Equity Fund','Corporate Invester','Hedge Fund'];
   public actualTypes: Array<string> = [];
   public bsCategory = '';
-  //public locations=['Chennai','Pune','Delhi','Hyderabad','Mumbai'];
   public message = '';
   public errorMessage = '';
   constructor(private _consumerFormBuilder: FormBuilder, 
     private _router: Router,
-    private consumerService: ConsumerService
+    private updateConsumerService: ConsumerService
   ) { }
 
   ngOnInit(): void {
     this.consumerForm = this._consumerFormBuilder.group({
+      consumerId: ['',Validators.required],
+      businessid: ['',Validators.required],
       firstname: ['',Validators.required],
       lastname: ['',Validators.required],
       businessname: ['',Validators.required],
@@ -54,7 +57,7 @@ export class CreateDetailsComponent implements OnInit {
 
   doAction(data: IConsumerFormData) {
     console.log(data);
-    this.consumerService.createConsumerDetails(data).subscribe((response) => {
+    this.updateConsumerService.updateConsumerDetails(data).subscribe((response) => {
       console.log(response);
       this.message = response.message;
     }, (error) => {

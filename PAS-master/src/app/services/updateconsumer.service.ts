@@ -13,12 +13,12 @@ export class ConsumerService {
     private baseURL = environment.consumerBaseURL;
 
     constructor(private httpClient: HttpClient) {}
-    loginUser(data: ILoginFormData): Observable<any>{
+    /*loginUser(data: ILoginFormData): Observable<any>{
         const loginURL = `${environment.loginBaseURL}/auth/authenticate`
         return this.httpClient.post(loginURL, data);
-    }
+    }*/
 
-    createConsumerDetails(data: IConsumerFormData): Observable<any>{
+  /*  createConsumerDetails(data: IConsumerFormData): Observable<any>{
         const createURL = `${this.baseURL}/createConsumerBusiness`;
         const header = {
             authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -37,8 +37,8 @@ export class ConsumerService {
         return this.httpClient.get<IConsumerFormData>(createURL, {
             headers: header
         });
-    }
-   /* updateConsumerDetails(data: IConsumerFormData): Observable<any>{
+    }*/
+    updateConsumerDetails(data: IConsumerFormData): Observable<any>{
         const createURL = `${this.baseURL}/updateConsumerBusiness`;
         const header = {
             authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -47,5 +47,5 @@ export class ConsumerService {
         return this.httpClient.put(createURL, data, {
             headers: header
         });
-    }*/
+    }
 }

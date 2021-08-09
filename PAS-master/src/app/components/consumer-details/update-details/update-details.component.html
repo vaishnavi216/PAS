@@ -1,6 +1,14 @@
+<h2>update details</h2>
 <div class="form-container">
     <form [formGroup]="consumerForm" (ngSubmit)="doAction(consumerForm.value)">
-        <h2>Log In</h2>
+        <div>
+            <label for="consumerId">Consumer Id</label>
+            <input type="text" name="consumerId" formControlName="consumerId" required placeholder="Enter consumer Id">
+        </div>
+        <div>
+            <label for="businessid">Business Id</label>
+            <input type="text" name="businessid" formControlName="businessid" required placeholder="Enter businessid">
+        </div>
         <div>
             <label for="firstname">First Name</label>
             <input type="text" name="firstname" formControlName="firstname" required placeholder="Enter firstname">
@@ -99,20 +107,13 @@
         <div>
             <label for="businesstype">Business type</label>
             <select name="businesstype" id="businesstype" formControlName='businesstype'>
-                <option [ngValue]='null' >Select category</option>
+                <option [ngValue]='null' disabled>Select category</option>
                 <option *ngFor="let type of actualTypes" [ngValue]='type'>{{type}}</option>
             </select>
         </div>
         <div *ngIf="consumerForm.controls['businesstype'].invalid && consumerForm.controls['businesstype'].touched" class="alert-danger">
            business type required.
         </div>
-      <!--<div>
-            <label for="location">Business location</label>
-            <select name="location" id="location" formControlName='location' [(ngModel)]='locations'>
-                <option [ngValue]='null' disabled>Select category</option>
-                <option *ngFor="let location of locations" [ngValue]='location'>{{location}}</option>
-            </select>
-        </div>-->
         <div>
             <label for="location">Business location</label>
         <select name="location" id="location" formControlName="location">
@@ -122,10 +123,6 @@
             <option value="Delhi">Delhi</option>
         </select>
     </div>
-        <!--<div>
-            <label for="location">Location</label>
-            <input type="text" name='location' formControlName='location' required >
-        </div>-->
         <div *ngIf="consumerForm.controls['location'].invalid && consumerForm.controls['location'].touched" class="alert-danger">
             select your comfortable location.
         </div>

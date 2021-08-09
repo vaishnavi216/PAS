@@ -15,7 +15,7 @@ export class ViewDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
-    //this.consumerformdata=new IConsumerFormData();
+  //this.consumerformdata=new IConsumerFormData();
     this.consumerService.viewConsumerDetails(this.id).subscribe(data => {
       this.consumerformdata=data;
     });

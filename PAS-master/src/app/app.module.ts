@@ -10,6 +10,7 @@ import { ConsumerDetailsComponent } from './components/consumer-details/consumer
 import { CreateDetailsComponent } from './components/consumer-details/create-details/create-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewDetailsComponent } from './components/consumer-details/view-details/view-details.component';
+import { UpdateDetailsComponent } from './components/consumer-details/update-details/update-details.component';
 
 
 
@@ -21,6 +22,7 @@ import { ViewDetailsComponent } from './components/consumer-details/view-details
     CreateDetailsComponent,
     HomeComponent,
     ViewDetailsComponent,
+    UpdateDetailsComponent,
     
   ],
   imports: [

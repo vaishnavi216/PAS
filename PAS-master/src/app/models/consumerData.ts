@@ -18,4 +18,7 @@ export interface IConsumerFormData {
     capitalinvested: number;
     totalemployees: number;
     businessage: number;
+    consumerId: number;
+    businessid: number;
+    businessvalue: number;
 }
