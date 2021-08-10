@@ -1,0 +1,234 @@
+<title>Flight Booking</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<body>
+  
+    <div id="booking" class="section">
+        <div class="section-center">
+            <div class="container">
+                <div class="row">
+                    <div class="booking-form">
+                        <div class="form-header">
+                            <h1>Log In</h1>
+                        </div>
+    <form [formGroup]="consumerForm" (ngSubmit)="doAction(consumerForm.value)">
+        <!-- first row  -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="firstname" formControlName="firstname" required placeholder="Enter firstname">
+                    <span class="form-label">First Name</span>
+                    <span *ngIf="consumerForm.controls['firstname'].invalid && consumerForm.controls['firstname'].touched"> Name is
+                        required</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">last Name</span>  <input type="text" class="form-control" name="lastname" formControlName="lastname" required placeholder="Enter lastname">
+                    <span *ngIf="consumerForm.controls['lastname'].invalid && consumerForm.controls['lastname'].touched"> LastName is required.
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">Business Name</span>  <input type="text" class="form-control" name="businessname" formControlName="businessname" required placeholder="Enter businessname">
+                    <span *ngIf="consumerForm.controls['businessname'].invalid && consumerForm.controls['businessname'].touched"> BusinessName is required.
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">DOB</span> <input type="date" class="form-control" name="dob" formControlName="dob" required placeholder="Enter date of birth">
+                    <span *ngIf="consumerForm.controls['dob'].invalid && consumerForm.controls['dob'].touched">  Date of birth is required.
+                        </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- second row -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">PAN card no</span> <input type="text" class="form-control"  name='pandetails' formControlName='pandetails' required placeholder="Enter PAN number">
+                    <span *ngIf="consumerForm.controls['pandetails'].invalid && consumerForm.controls['pandetails'].touched"> enter above your valid pan number
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">Email</span><input type="email" name='email' class="form-control"  formControlName='email' required placeholder="Enter Email">
+                    <span *ngIf="consumerForm.controls['email'].invalid && consumerForm.controls['email'].touched"> enter above your valid pan number
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">Phone</span> <input type="string" name='phone' class="form-control"  formControlName='phone' required placeholder="Enter Phone">
+                    <span *ngIf="consumerForm.controls['phone'].invalid && consumerForm.controls['phone'].touched"> enter above your valid pan number
+                        </span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">Website</span><input type="text" class="form-control"  name='website' placeholder="Enter website" formControlName='website' required >
+                    <span *ngIf="consumerForm.controls['website'].invalid && consumerForm.controls['website'].touched"> enter  website
+                        </span>
+                </div>
+            </div>
+        </div>
+<!-- third row -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">business overview</span>
+            <input type="text" name='businessoverview' class="form-control" formControlName='businessoverview'  placeholder="Enter businessoverriew" required >
+        <span *ngIf="consumerForm.controls['businessoverview'].invalid && consumerForm.controls['businessoverview'].touched" class="alert-danger">
+           enter businessoverview
+        </span>
+        </div>
+        </div>
+       
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Validity</span>
+            <input type="text" name='validity' class="form-control" formControlName='validity' required  placeholder="Enter Validity" >
+        
+        <span *ngIf="consumerForm.controls['validity'].invalid && consumerForm.controls['validity'].touched" class="alert-danger">
+           enter validity
+        </span>
+        </div>
+        </div>
+
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Agent Name</span>
+            <input type="text" name='agentname' class="form-control"  placeholder="Enter AgentName" formControlName='agentname' required >
+        
+        <span *ngIf="consumerForm.controls['agentname'].invalid && consumerForm.controls['agentname'].touched" class="alert-danger">
+           Agent Name required
+        </span>
+        </div></div>
+
+       <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Agent Id</span>
+            <input type="number" name='agentid' class="form-control"  placeholder="Enter AgentId"  formControlName='agentid' required >
+        
+        <span *ngIf="consumerForm.controls['agentid'].invalid && consumerForm.controls['agentid'].touched" class="alert-danger">
+           agentid required.
+        </span>
+        </div>
+        </div>
+        </div>
+<!-- fourth row -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Business Category</span>
+            <select name="businesscategory" class="form-control" id="businesscategory"  placeholder="select Business Category" formControlName='businesscategory' [(ngModel)]='bsCategory' (change)="changeType(bsCategory)">
+                <option [ngValue]='null' disabled>Select category</option>
+                <option *ngFor="let category of categories" [ngValue]='category'>{{category}}</option>
+            </select>
+        
+        <span *ngIf="consumerForm.controls['businesscategory'].invalid && consumerForm.controls['businesscategory'].touched" class="alert-danger">
+            business category required
+        </span>
+        </div>
+        </div>
+
+       <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Business type</span>
+            <select name="businesstype" class="form-control" id="businesstype" formControlName='businesstype'>
+                <option [ngValue]='null' >Select category</option>
+                <option *ngFor="let type of actualTypes" [ngValue]='type'>{{type}}</option>
+            </select>
+        
+        <span *ngIf="consumerForm.controls['businesstype'].invalid && consumerForm.controls['businesstype'].touched" class="alert-danger">
+           business type required.
+        </span>
+        </div>
+        </div>
+    
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Business Location</span>
+        <select name="location" class="form-control"  placeholder="Enter location" id="location" formControlName="location">
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+        <span *ngIf="consumerForm.controls['location'].invalid && consumerForm.controls['location'].touched" class="alert-danger">
+            select your comfortable location.
+        </span>
+        </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Business turnover</span>
+            <input type="number" class="form-control" name='businessturnover'  placeholder="Enter businessturnover"  formControlName='businessturnover' required >
+        
+        <span *ngIf="consumerForm.controls['businessturnover'].invalid && consumerForm.controls['businessturnover'].touched" class="alert-danger">
+           business turnover in lakhs
+        </span>
+        </div>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <span class="form-label">Capital invested</span>
+            <input type="number" class="form-control" name='capitalinvested'  placeholder="capital Invested" formControlName='capitalinvested' required >
+        <span *ngIf="consumerForm.controls['capitalinvested'].invalid && consumerForm.controls['capitalinvested'].touched" class="alert-danger">
+            capital invested in lakhs
+        </span>
+        </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">Total Employees</span>
+            <input type="number" class="form-control"  name='totalemployees'  placeholder="Total Employees" formControlName='totalemployees' required >
+        <span *ngIf="consumerForm.controls['totalemployees'].invalid && consumerForm.controls['totalemployees'].touched" class="alert-danger">
+            total employee required.
+        </span>
+        </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <span class="form-label">business age</span>
+            <input type="number" class="form-control" name='businessage'  placeholder="Enter Business Age" formControlName='businessage' required >
+        <span *ngIf="consumerForm.controls['businessage'].invalid && consumerForm.controls['businessage'].touched" class="alert-danger">
+            business age required.
+        </span>
+        </div>
+        </div>
+        </div>
+
+        <div>
+            <button [disabled]='consumerForm.invalid' class="submit-btn" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+
+    <div *ngIf='errorMessage' class="error">
+        {{errorMessage}}
+    </div>
+
+    <div *ngIf='message' class="success">
+        {{message}}
+    </div>

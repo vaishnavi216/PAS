@@ -1,0 +1,169 @@
+<h2>update details</h2>
+<div class="form-container">
+    <form [formGroup]="consumerForm" (ngSubmit)="doAction(consumerForm.value)">
+        <div>
+            <label for="consumerId">Consumer Id</label>
+            <input type="text" name="consumerId" formControlName="consumerId" required placeholder="Enter consumer Id">
+        </div>
+        <div>
+            <label for="businessid">Business Id</label>
+            <input type="text" name="businessid" formControlName="businessid" required placeholder="Enter businessid">
+        </div>
+        <div>
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" formControlName="firstname" required placeholder="Enter firstname">
+        </div>
+        <div *ngIf="consumerForm.controls['firstname'].invalid && consumerForm.controls['firstname'].touched" class="alert-danger">
+            Name is required.
+        </div>
+        <div>
+            <label for="lastname">last Name</label>
+            <input type="text" name="lastname" formControlName="lastname" required placeholder="Enter lastname">
+        </div>
+        <div *ngIf="consumerForm.controls['lastname'].invalid && consumerForm.controls['lastname'].touched" class="alert-danger">
+            LastName is required.
+        </div>
+        <div>
+            <label for="businessname">Business Name</label>
+            <input type="text" name="businessname" formControlName="businessname" required placeholder="Enter businessname">
+        </div>
+        <div *ngIf="consumerForm.controls['businessname'].invalid && consumerForm.controls['businessname'].touched" class="alert-danger">
+            Business name is required
+        </div>
+        <div>
+            <label for="dob">DOB</label>
+            <input type="date" name="dob" formControlName="dob" required placeholder="Enter date of birth">
+        </div>
+        <div *ngIf="consumerForm.controls['dob'].invalid && consumerForm.controls['dob'].touched" class="alert-danger">
+            Date of birth is required.
+        </div>
+        
+        <div>
+            <label for="pan">PAN card no</label>
+            <input type="text" name='pandetails' formControlName='pandetails' required placeholder="Enter PAN number">
+        </div>
+        <div *ngIf="consumerForm.controls['pandetails'].invalid && consumerForm.controls['pandetails'].touched" class="alert-danger">
+            enter above your valid pan number
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name='email' formControlName='email' required placeholder="Enter Email">
+        </div>
+        <div *ngIf="consumerForm.controls['email'].invalid && consumerForm.controls['email'].touched" class="alert-danger">
+            enter valid email.
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input type="string" name='phone' formControlName='phone' required placeholder="Enter Phone">
+        </div>
+        <div *ngIf="consumerForm.controls['phone'].invalid && consumerForm.controls['phone'].touched" class="alert-danger">
+            enter valid phone Number.
+        </div>
+        <div>
+            <label for="website">Website</label>
+            <input type="text" name='website' formControlName='website' required >
+        </div>
+        <div *ngIf="consumerForm.controls['website'].invalid && consumerForm.controls['website'].touched" class="alert-danger">
+            website required
+        </div>
+        <div>
+            <label for="businessoverview">Business Overview</label>
+            <input type="text" name='businessoverview' formControlName='businessoverview' required >
+        </div>
+        <div *ngIf="consumerForm.controls['businessoverview'].invalid && consumerForm.controls['businessoverview'].touched" class="alert-danger">
+           enter businessoverview
+        </div>
+        <div>
+            <label for="validity">Validity</label>
+            <input type="text" name='validity' formControlName='validity' required >
+        </div>
+        <div *ngIf="consumerForm.controls['validity'].invalid && consumerForm.controls['validity'].touched" class="alert-danger">
+           enter validity
+        </div>
+        <div>
+            <label for="agentname">Agent Name</label>
+            <input type="text" name='agentname' formControlName='agentname' required >
+        </div>
+        <div *ngIf="consumerForm.controls['agentname'].invalid && consumerForm.controls['agentname'].touched" class="alert-danger">
+           Agent Name required
+        </div>
+        <div>
+            <label for="agentid">Agent Id</label>
+            <input type="number" name='agentid' formControlName='agentid' required >
+        </div>
+        <div *ngIf="consumerForm.controls['agentid'].invalid && consumerForm.controls['agentid'].touched" class="alert-danger">
+           agentid required.
+        </div>
+        <div>
+            <label for="businesscategory">Business category</label>
+            <select name="businesscategory" id="businesscategory" formControlName='businesscategory' [(ngModel)]='bsCategory' (change)="changeType(bsCategory)">
+                <option [ngValue]='null' disabled>Select category</option>
+                <option *ngFor="let category of categories" [ngValue]='category'>{{category}}</option>
+            </select>
+        </div>
+        <div *ngIf="consumerForm.controls['businesscategory'].invalid && consumerForm.controls['businesscategory'].touched" class="alert-danger">
+            business category required
+        </div>
+        <div>
+            <label for="businesstype">Business type</label>
+            <select name="businesstype" id="businesstype" formControlName='businesstype'>
+                <option [ngValue]='null' disabled>Select category</option>
+                <option *ngFor="let type of actualTypes" [ngValue]='type'>{{type}}</option>
+            </select>
+        </div>
+        <div *ngIf="consumerForm.controls['businesstype'].invalid && consumerForm.controls['businesstype'].touched" class="alert-danger">
+           business type required.
+        </div>
+        <div>
+            <label for="location">Business location</label>
+        <select name="location" id="location" formControlName="location">
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+    </div>
+        <div *ngIf="consumerForm.controls['location'].invalid && consumerForm.controls['location'].touched" class="alert-danger">
+            select your comfortable location.
+        </div>
+        <div>
+            <label for="businessturnover">businessturnover</label>
+            <input type="number" name='businessturnover' formControlName='businessturnover' required >
+        </div>
+        <div *ngIf="consumerForm.controls['businessturnover'].invalid && consumerForm.controls['businessturnover'].touched" class="alert-danger">
+           business turnover in lakhs
+        </div>
+        <div>
+            <label for="capitalinvested">capitalinvested</label>
+            <input type="number" name='capitalinvested' formControlName='capitalinvested' required >
+        </div>
+        <div *ngIf="consumerForm.controls['capitalinvested'].invalid && consumerForm.controls['capitalinvested'].touched" class="alert-danger">
+            capital invested in lakhs
+        </div>
+        <div>
+            <label for="totalemployees">totalemployees</label>
+            <input type="number" name='totalemployees' formControlName='totalemployees' required >
+        </div>
+        <div *ngIf="consumerForm.controls['totalemployees'].invalid && consumerForm.controls['totalemployees'].touched" class="alert-danger">
+            total employee required.
+        </div>
+        <div>
+            <label for="businessage">businessage</label>
+            <input type="number" name='businessage' formControlName='businessage' required >
+        </div>
+        <div *ngIf="consumerForm.controls['businessage'].invalid && consumerForm.controls['businessage'].touched" class="alert-danger">
+            business age required.
+        </div>
+        <div>
+            <button [disabled]='consumerForm.invalid' type="submit">Submit</button>
+        </div>
+    </form>
+
+    <div *ngIf='errorMessage' class="error">
+        {{errorMessage}}
+    </div>
+
+    <div *ngIf='message' class="success">
+        {{message}}
+    </div>
+</div>

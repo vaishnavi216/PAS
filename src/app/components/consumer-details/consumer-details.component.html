@@ -1,0 +1,43 @@
+<div class="container">
+    
+    <div>
+        <form [formGroup]="consumerViewForm"> 
+            <div>
+                <label for="consumerId">Consumer Id</label>
+                <input type="text" required [(ngModel)]="consumerid" name="consumerid" formControlName="consumerId">
+            </div>
+            <div>
+                <button [disabled]='consumerViewForm.invalid' (click)='getDetails(consumerid)'>Get Details</button>
+                <button [disabled]='consumerViewForm.invalid' (click)='updateDetails(consumerid)'>Update Details</button>
+                <a routerLink="create">create</a>
+            </div>
+        </form>
+    </div>
+    <div>
+        <a routerLink="create-property">Create Property</a>
+        <a routerLink="update-property">Update Property</a>
+    </div>
+
+<!--<div>
+        <form [formGroup]="propertyViewForm"> 
+            <div>
+                <label for="consumerId">Consumer Id</label>
+                <input type="text" required [(ngModel)]="consumerid" name="consumerid" formControlName="consumerId">
+            </div>
+            <div>
+                <label for="propertyid;">Property Id</label>
+                <input type="text" required [(ngModel)]="propertyid" name="propertyid" formControlName="propertyid;">
+            </div>
+
+            <div>
+                <button  (click)='getPropertyDetails(propertyid)'>Get Property Details</button>
+                <button [disabled]='propertyViewForm.invalid' (click)='updatePropertyDetails(propertyid)'>Update Property Details</button>
+                <a routerLink="create-property">Create Property</a>
+            </div>
+        </form>
+    </div>-->
+    
+    <!-- <div *ngIf='errorMessage' class="error">
+        {{errorMessage}}
+    </div> -->
+</div>
